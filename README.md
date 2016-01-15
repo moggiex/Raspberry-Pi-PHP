@@ -15,7 +15,8 @@ $GPIO->set_pin(22, 1);
 // And off again
 $GPIO->set_pin(22, 0);
 // read a pin
-$GPIO->read_pin(22);
+echo $GPIO->read_pin(22);
+
 ```
 # Set up (basic)
 To be able to use this library you'll need the following installed on your pi:
