@@ -6,14 +6,23 @@ I'm guessing just like you, I prefer PHP as my main programming language and whi
 # Commands
 
 // set up an object
+
 $GPIO = new Raspberry_GPIO;
+
 // sets up the pins so they can be used as out's
+
 $pins = $GPIO->setup_pins();
+
 // turn a pin on 
+
 $GPIO->set_pin(22, 1);
+
 // And off again
+
 $GPIO->set_pin(22, 0);
+
 // read a pin
+
 $GPIO->read_pin(22);
 
 # Set up (basic)
