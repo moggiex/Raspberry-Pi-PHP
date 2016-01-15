@@ -1,7 +1,7 @@
 # pi-PHP
 A PHP library that can be used with the Raspberry pi to remote control the GPIO pins using PHP (built to remote control a home using a web browser & a pi).
 
-I'm guessing just like you, you prefer PHP as your programming language and while Python is great, it's not what we're used to coding. So I built this library to help others with their web based applications who want to take the web into the "real-world" using a Pi.
+I'm guessing just like me, you prefer PHP as your programming language and while Python is great, it's not what we're used to coding (especially when you throw in SQLite as a database & jQuery + bootstrap for the UI). So I built this library to help others with their web based applications who want to take the web into the "real-world" using a Pi.
 
 # Dependances
 
