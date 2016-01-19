@@ -3,11 +3,6 @@ A PHP library that can be used with the Raspberry Pi to remote control the GPIO 
 
 I'm guessing just like me, you prefer PHP as your programming language and while Python is great, it's not what we're used to coding (especially when you throw in SQLite as a database & jQuery + bootstrap for the UI). So I built this library to help others with their web based applications who want to take the web into the "real-world" using a Pi.
 
-# Dependances
-
-This library is used to provide the gpio commands is below:
-http://git.drogon.net/wiringPi
-
 # Basic Usage
 
 ```php
@@ -57,6 +52,11 @@ $GPIO->sr_push_array($arr);
 ```
 
 See the example php files for more examples
+
+# Dependances
+
+- This library is used to provide the gpio commands http://git.drogon.net/wiringPi
+- And of course PHP & Apache (or other webserver)
 
 # Set up (basic)
 To be able to use this library you'll need the following installed on your pi:
