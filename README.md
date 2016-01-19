@@ -34,7 +34,7 @@ git clone git://git.drogon.net/wiringPi
 cd wiringPi
 ./build
 cd /var/www/
-git clone https://github.com/moggiex/pi-PHP
+git clone https://github.com/moggiex/Rasberry-Pi-PHP
 ```
 # Set up (advanced, includes sqlite3, vsftpd)
 
