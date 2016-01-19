@@ -8,7 +8,7 @@ I'm guessing just like me, you prefer PHP as your programming language and while
 This library is used to provide the gpio commands is below:
 http://git.drogon.net/wiringPi
 
-# Commands
+# Basic Usage
 
 ```php
 // set up an object
@@ -21,7 +21,39 @@ $GPIO->set_pin(22, 1);
 $GPIO->set_pin(22, 0);
 // read a pin
 echo $GPIO->read_pin(22);
+```
 
+# Advanced Usage
+Also I added in Shift Register support as well using arrays.
+
+```php
+// New object
+$GPIO = new Raspberry_GPIO;
+// Use the Pi pin numbers
+$GPIO->change_pin_mode(1);
+// Set the pin numbers for the 4 inputs
+$data 	= 19;
+$clock 	= 22;
+$latch 	= 27;
+$clear 	= 12;
+// And set these in the class
+$GPIO->data 	= $data;
+$GPIO->clock 	= $clock;
+$GPIO->latch 	= $latch;
+$GPIO->clear	= $clear;
+// Tell the Pi that these pins should be "out"'s
+$GPIO->pin_mode($data, "out");
+$GPIO->pin_mode($clock, "out");
+$GPIO->pin_mode($latch, "out");
+$GPIO->pin_mode($clear, "out");
+// Force the clear pin high (assuming you're using a 74HC595 shift register)
+$GPIO->set_pin($clear, 1);
+// Clear the register
+$GPIO->sr_clear();
+// Make an array
+$arr = array(1,1,1,0,0,0,0);
+// Push the array to the register(s)
+$GPIO->sr_push_array($arr);
 ```
 
 See the example php files for more examples
