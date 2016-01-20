@@ -37,16 +37,27 @@ $GPIO->set_pin($clear, 1);
 $GPIO->sr_clear();
 
 // Make an array
-$arr = array(1,1,1,0,0,0,0);
+$arr = array(1,1,1,0,0,0,0,0);
 
 // Push the array to the register
 $GPIO->sr_push_array($arr);
 
 // And you get the idea from here :)
-$arr = array(1,0,0,0,0,0,0);
+$arr = array(1,0,0,0,0,0,0,0);
 $GPIO->sr_push_array($arr);
-$arr = array(0,1,0,0,0,0,0);
+$arr = array(0,1,0,0,0,0,0,0);
 $GPIO->sr_push_array($arr);
-$arr = array(0,0,1,0,0,0,0);
+$arr = array(0,0,1,0,0,0,0,0);
 $GPIO->sr_push_array($arr);
+
+// And another example that loops
+$arr = array(0,0,0,0,0,0,0,0);
+ for ($i=0; $i < count($arr); $i++) { 
+ 	//$state = ($i % 2 == 0 ? 1 : 0);
+ 	$arr[$i] = 1;
+ 	$GPIO->sr_push_array($arr);
+ }
+}
+// Clear the register
+$GPIO->sr_clear();
 
