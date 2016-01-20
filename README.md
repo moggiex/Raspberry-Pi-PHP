@@ -3,23 +3,31 @@ A PHP library that can be used with the Raspberry Pi to remote control the GPIO 
 
 I'm guessing just like me, you prefer PHP as your programming language and while Python is great, it's not what we're used to coding (especially when you throw in SQLite as a database & jQuery + bootstrap for the UI). So I built this library to help others with their web based applications who want to take the web into the "real-world" using a Pi.
 
+The main class was built up over a couple of days to do what I needed it to do & this project should be classed as a "work in progress". Feel free to make suggestions or add as desired.
+
 # Basic Usage
 
 ```php
 // set up an object
 $GPIO = new Raspberry_GPIO;
-// sets up the pins so they can be used as out's
-$pins = $GPIO->setup_pins();
+// Use the Pi pin numbers
+$GPIO->change_pin_mode(1);
+// set pin 22 as an out
+$GPIO->pin_mode(22, "out");
 // turn a pin on 
 $GPIO->set_pin(22, 1);
+// sleep for a second
+sleep(1);
 // And off again
 $GPIO->set_pin(22, 0);
-// read a pin
+// read a pins state
 echo $GPIO->read_pin(22);
 ```
 
 # Advanced Usage
-Also I added in Shift Register support as well using arrays.
+I added in Shift Register support using arrays. 
+
+The idea behind this was to be able to control more than the limited number of outputs from a Raspberry Pi and not flicker lights/relays when loading in new data. The array can be as big as you need it to be, handy if you're stringing more than one shift register (eg 74H595's) together to go beyond just 7 outputs.
 
 ```php
 // New object
@@ -56,7 +64,7 @@ See the example php files for more examples
 # Dependances
 
 - This library is used to provide the gpio commands http://git.drogon.net/wiringPi
-- And of course PHP & Apache (or other webserver)
+- And of course you need at least PHP & probably Apache (or other webserver) too
 
 # Set up (basic)
 To be able to use this library you'll need the following installed on your pi:
@@ -71,16 +79,16 @@ cd wiringPi
 cd /var/www/
 git clone https://github.com/moggiex/Raspberry-Pi-PHP
 ```
-# Set up (advanced, includes sqlite3, vsftpd)
+# Optional Set up
 
-FTP Server
+Add a FTP Server
 See here http://www.techrapid.co.uk/raspberry-pi/setup-ftp-server-raspberry-pi-vsftpd/ for setup details
 ```
 sudo apt-get install vsftpd
 sudo nano /etc/vsftpd.conf
 sudo service vsftpd restart
 ```
-Sqlite3 
+And a lightweight database using Sqlite3 to store the states via a database (Sqlite3 has basically the same commands as MySQL)
 See here http://raspberrywebserver.com/sql-databases/set-up-an-sqlite-database-on-a-raspberry-pi.html
 ```
 sudo apt-get install sqlite3
