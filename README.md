@@ -71,8 +71,7 @@ To be able to use this library you'll need the following installed on your pi:
 ```
 sudo apt-get upgrade
 sudo apt-get update
-sudo apt-get install apache2 php5 php5-dev
-sudo apt-get install git-core
+sudo apt-get install apache2 php5 php5-dev git-core
 git clone git://git.drogon.net/wiringPi
 cd wiringPi
 ./build
